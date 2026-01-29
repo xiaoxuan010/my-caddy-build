@@ -32,3 +32,14 @@ docker build -t my-custom-caddy --build-arg CADDY_VERSION=2.10.2 .
 
 推送到 `main` 分支后，工作流将自动运行。您也可以通过 GitHub Actions 中的*运行工作流*按钮手动触发它。
 
+### Dependabot 自动更新
+
+本仓库已配置 GitHub Dependabot 来自动同步上游依赖更新:
+
+#### 更新策略
+
+- **检查频率**: 每周一上午 9:00 (UTC)
+- **自动合并**: 
+  - Minor 和 Patch 版本更新会自动批准并合并
+  - Major 版本更新会创建 PR 并添加警告评论,需要手动审核
+- **PR 限制**: 最多同时打开 5 个 PR
